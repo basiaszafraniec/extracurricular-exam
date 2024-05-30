@@ -21,13 +21,13 @@ async function displayProjectsGrid(projects) {
   const projectsGrid = document.querySelector("#projects-grid");
   for (const project of projects) {
     projectsGrid.insertAdjacentHTML(
-      "beforeend",
+      "afterbegin",
       /*html*/ `
       <article class="grid-item">
         <img src="${project.acf.image}" alt="${project.title.rendered}" />
         <h2>${project.acf.name}</h2>
        <p>${project.acf.description}</p>
-       <a href="${project.acf.link}" target="_blank"> Click to see</a>       
+       <a href="${project.acf.link}" target="blank"> Click to see</a>       
         <p>${project.acf.date}</p>
  
       </article>
