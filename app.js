@@ -7,16 +7,16 @@ async function initApp() {
   console.log("initApp: app.js is running 🎉"); // Log to the console that the app is running
   const projects = await getProjects();
   displayProjectsGrid(projects);
-  // displayprojects(projects);
-  // console.log(projects);
 }
 
+//Function for fetching data form the WordPress page
 async function getProjects() {
   const response = await fetch("https://wp-test.basiaszafraniec.dk/wp-json/wp/v2/projects?acf_format=standard");
   const data = await response.json();
   return data;
 }
 
+//Function for displaying fetched data on my page
 async function displayProjectsGrid(projects) {
   const projectsGrid = document.querySelector("#projects-grid");
   for (const project of projects) {
@@ -34,17 +34,4 @@ async function displayProjectsGrid(projects) {
     `
     );
   }
-}
-
-function displayprojects(projects) {
-  const projectsList = document.querySelector("#projects-list");
-  for (const project of projects) {
-    projectsList.insertAdjacentHTML(
-      "beforeend", `
-      <li>${project.title.rendered}</li>
-      `
-    )
-    // console.log(project);
-  }
-
 }
